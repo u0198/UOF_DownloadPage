@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>榮成紙業UOF行動裝置下載</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Wire+One&display=swap" rel="stylesheet" />
+		<style>
+			/* global */
+			#ios {
+				display: none;
+			}
+			#android {
+				display: none;
+			}
+			#windows {
+				display: none;
+			}
+			.container {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+
+			/* App Device */
+			.app_icon_wrap {
+				width: 250px;
+				height: 220px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				border: 1px solid rgba(0, 0, 0, 0.2);
+				border-radius: 20%;
+				margin: 30px 0;
+			}
+			.download_link {
+				text-decoration: none;
+				font-size: 30px;
+				color: #2886d1;
+			}
+			.download_link:hover {
+				text-decoration: underline;
+			}
+
+			/* Windows Device */
+			table,
+			tr,
+			td {
+				border: 1px solid rgb(172, 170, 170);
+			}
+			td {
+				padding: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Android 載點頁面 -->
+		<div id="android">
+			<div class="container">
+				<div class="app_icon_wrap">
+					<img src="./companylogo.png" alt="longchenlogo" style="width: 230px; height: 80px" />
+					<h3>UOF行動裝置</h3>
+				</div>
+				<a
+					class="download_link"
+					href="https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895?platform=ipad"
+					>下載</a
+				>
+			</div>
+		</div>
+		<!-- IOS 載點頁面 -->
+		<div id="ios">
+			<div class="container">
+				<div class="app_icon_wrap">
+					<img src="./companylogo.png" alt="longchenlogo" style="width: 230px; height: 80px" />
+					<h3>UOF行動裝置</h3>
+				</div>
+				<a
+					class="download_link"
+					href="https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895?platform=ipad"
+					>下載</a
+				>
+			</div>
+		</div>
+		<!-- Windows 載點頁面 -->
+		<div id="windows">
+			<div class="container">
+				<img src="./companylogo.png" alt="" style="margin-top: 20px" />
+				<h3>UOF 行動裝置下載</h3>
+				<table>
+					<tr>
+						<td>
+							<img src="./apple-logo.png" alt="" style="width: 100px" />
+						</td>
+						<td>
+							<img src="./ios_qr.png" alt="" style="width: 100px" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="./android-logo.png" alt="" style="width: 100px" />
+						</td>
+						<td>
+							<img src="./ios_qr.png" alt="" style="width: 100px" />
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+	<script>
+		function getOperatingSystem() {
+			var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+			// Windows
+			if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				document.getElementById("windows").style.display = "block";
+				// alert("windows");
+				return "windows";
+			} else {
+				// Android
+				if (/android/i.test(userAgent)) {
+					document.getElementById("android").style.display = "block";
+					// alert("android");
+					return "android";
+				}
+
+				// IOS
+				if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+					document.getElementById("ios").style.display = "block";
+					// alert("ios");
+					return "ios";
+				}
+			}
+		}
+
+		window.onload = function () {
+			getOperatingSystem();
+		};
+	</script>
+</html>
