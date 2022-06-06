@@ -48,6 +48,10 @@
 			.download_link:hover {
 				text-decoration: underline;
 			}
+			.links {
+				display: flex;
+				align-items: center;
+			}
 
 			/* Windows Device */
 			table,
@@ -57,14 +61,31 @@
 			}
 			td {
 				padding: 30px;
+				text-align: center;
 			}
 			.win_logo {
+				width: 80px;
+			}
+			.ios_qrcode {
 				width: 100px;
+			}
+			.android_qrcode {
+				width: 110px;
+			}
+			.detail {
+				text-decoration: none;
+				color: #2886d1;
+			}
+			.detail:hover {
+				text-decoration: underline;
 			}
 
 			@media only screen and (min-width: 1441px) {
-				.win_logo {
+				.ios_qrcode {
 					width: 150px;
+				}
+				.android_qrcode {
+					width: 160px;
 				}
 			}
 		</style>
@@ -74,52 +95,67 @@
 		<div id="android">
 			<div class="container">
 				<div class="app_icon_wrap">
-					<img src="./companylogo.png" alt="longchenlogo" style="width: 230px; height: 80px" />
+					<img src="./images/companylogo.png" alt="longchenlogo" style="width: 230px; height: 80px" />
 					<h3>UOF行動裝置</h3>
 				</div>
-				<a
-					class="download_link"
-					href="https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895?platform=ipad"
-					target="_blank"
-					>下載</a
-				>
+				<div class="links">
+					<a
+						class="download_link"
+						href="https://drive.google.com/file/d/1MXuEaRn_cVfVgwO2x5kHm03J14Ce-0Og/view?usp=sharing"
+						target="_blank"
+						rel="noopener noreferrer"
+						>下載</a
+					>
+					<p style="font-size: 30px; padding: 0 10px; font-weight: 600; color: rgb(172, 170, 170)">|</p>
+					<a class="download_link" href="./android_tutorial.html" target="_blank" rel="noopener noreferrer">安裝說明</a>
+				</div>
 			</div>
 		</div>
 		<!-- IOS 載點頁面 -->
 		<div id="ios">
 			<div class="container">
 				<div class="app_icon_wrap">
-					<img src="./companylogo.png" alt="longchenlogo" style="width: 230px; height: 80px" />
+					<img src="./images/companylogo.png" alt="longchenlogo" style="width: 230px; height: 80px" />
 					<h3>UOF行動裝置</h3>
 				</div>
-				<a
-					class="download_link"
-					href="https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895?platform=ipad"
-					target="_blank"
-					>下載</a
-				>
+				<div class="links">
+					<a
+						class="download_link"
+						href="https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895?platform=ipad"
+						target="_blank"
+						>下載</a
+					>
+					<p style="font-size: 30px; padding: 0 10px; font-weight: 600; color: rgb(172, 170, 170)">|</p>
+					<a class="download_link" href="./ios_tutorial.html" target="_blank" rel="noopener noreferrer">安裝說明</a>
+				</div>
 			</div>
 		</div>
 		<!-- Windows 載點頁面 -->
 		<div id="windows">
 			<div class="container">
-				<img src="./companylogo.png" alt="" style="margin-top: 20px" />
+				<img src="./images/companylogo.png" alt="" style="margin-top: 20px" />
 				<h3>UOF 行動裝置下載</h3>
 				<table>
 					<tr>
 						<td>
-							<img class="win_logo" src="./apple-logo.png" alt="" />
+							<img class="win_logo" src="./images/ios_logo.png" alt="" />
 						</td>
 						<td>
-							<img class="win_logo" src="./ios_qr.png" alt="" />
+							<img class="ios_qrcode" src="./images/ios_qr.png" alt="" />
+						</td>
+						<td>
+							<a class="detail" href="./ios_tutorial.html">IOS 安裝說明</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<img class="win_logo" src="./android-logo.png" alt="" />
+							<img class="win_logo" src="./images/android_logo.png" alt="" />
 						</td>
 						<td>
-							<img class="win_logo" src="./ios_qr.png" alt="" />
+							<img class="android_qrcode" src="./images/android_qr.png" alt="" />
+						</td>
+						<td>
+							<a class="detail" href="./android_tutorial.html">Android 安裝說明</a>
 						</td>
 					</tr>
 				</table>
