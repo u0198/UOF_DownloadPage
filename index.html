@@ -11,32 +11,35 @@
 		<style>
 			/* global */
 			body {
-				overflow: hidden;
+				overflow-y: hidden;
 			}
-			#ios {
+			/* #ios {
 				display: none;
-				/* min-height: calc(93vh - 30px); */
 			}
 			#android {
 				display: none;
-			}
+			} */
 			#windows {
-				display: none;
+				display: block;
 			}
 			body {
 				font-family: Arial, Helvetica, sans-serif;
 			}
 			.container {
-				height: 80vh;
+				height: 100vh;
 				width: 100%;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
 				text-align: center;
+				margin: 0 auto;
 			}
 
 			/* App Device */
+			/* .container-moblie {
+				height: 80vh;
+			}
 			.download_link {
 				text-decoration: none;
 				font-size: 28px;
@@ -53,28 +56,41 @@
 				height: 30px;
 				display: flex;
 				justify-content: center;
-				align-items: end;
 			}
 			.footer a {
 				cursor: pointer;
 			}
 			.footer a:hover {
 				text-decoration: underline;
-			}
+			} */
 
 			/* Windows Device */
+			.subtitle {
+				margin-bottom: 20px;
+				display: none;
+			}
 			.ios_qrcode {
 				width: 230px;
 				margin-bottom: 20px;
+				display: none;
 			}
 			.android_qrcode {
 				width: 230px;
 				margin-bottom: 20px;
+				display: none;
+			}
+			.ios_img {
+				width: 140px;
+				height: 46px;
+			}
+			.android_img {
+				width: 146px;
+				height: 47px;
 			}
 			.detail {
 				text-decoration: none;
 				color: #2886d1;
-				font-size: 23px;
+				font-size: 16px;
 				padding: 10px 0;
 			}
 			.detail:hover {
@@ -82,17 +98,44 @@
 			}
 
 			.content {
-				width: 720px;
 				display: flex;
-				justify-content: space-between;
+				justify-content: center;
 				align-items: center;
 				text-align: center;
+				gap: 16px;
 			}
 			.box {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
+			}
+
+			@media (min-width: 1024px) {
+				.subtitle {
+					display: block;
+				}
+				.ios_img {
+					width: 180px;
+					height: 55px;
+				}
+				.android_img {
+					width: 186px;
+					height: 57px;
+				}
+				.ios_qrcode {
+					display: block;
+				}
+				.android_qrcode {
+					display: block;
+				}
+				.content {
+					width: 800px;
+					justify-content: space-around;
+				}
+				.detail {
+					font-size: 23px;
+				}
 			}
 
 			@media only screen and (min-width: 1440px) {
@@ -110,8 +153,8 @@
 	</head>
 	<body>
 		<!-- Android 載點頁面 -->
-		<div id="android">
-			<div class="container">
+		<!-- <div id="android">
+			<div class="container container-moblie">
 				<div class="app_icon_wrap">
 					<img src="./images/companylogo.png" alt="longchenlogo" style="width: 230px; height: 75px" />
 					<h3>雲端辦公室 App</h3>
@@ -140,10 +183,10 @@
 			<div class="footer">
 				<a onclick="windowsToggler()">電腦版</a>
 			</div>
-		</div>
+		</div> -->
 		<!-- iOS 載點頁面 -->
-		<div id="ios">
-			<div class="container">
+		<!-- <div id="ios">
+			<div class="container container-moblie">
 				<img src="./images/companylogo.png" alt="longchenlogo" style="width: 230px; height: 75px" />
 				<h3>雲端辦公室 App</h3>
 				<p>
@@ -168,69 +211,67 @@
 			<div class="footer">
 				<a onclick="windowsToggler()">電腦版</a>
 			</div>
-		</div>
+		</div> -->
 		<!-- Windows 載點頁面 -->
-		<div id="windows">
-			<div class="container">
-				<img src="./images/companylogo.png" alt="" style="margin-top: 20px" />
-				<h3>雲端辦公室 App下載</h3>
-				<div class="content">
-					<div class="box">
-						<h2 style="margin-bottom: 20px">iOS</h2>
-						<img src="./images/ios_qr.png" alt="ios-qrcode" class="ios_qrcode" />
-						<a
-							href="https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895"
-						>
-							<img src="./images/ios_download.png" alt="" style="width: 180px" />
-						</a>
-						<a href="./ios_tutorial.html" class="detail">安裝說明 - iOS</a>
-					</div>
-					<div class="box">
-						<h2 style="margin-bottom: 20px">Android</h2>
-						<img src="./images/android_qr.png" alt="android-qrcode" class="android_qrcode" />
-						<a href="https://cloud.longchenpaper.com/s/iFwafeYy9sB6Jw9">
-							<img src="./images/android_download.png" alt="" style="width: 180px" />
-						</a>
-						<a href="./android_tutorial.html" class="detail">安裝說明 - Android</a>
-					</div>
+		<div class="container">
+			<img src="./images/companylogo.png" alt="" style="margin-top: 20px" />
+			<h3>雲端辦公室 App下載</h3>
+			<div class="content">
+				<div class="box">
+					<h2 class="subtitle">iOS</h2>
+					<img src="./images/ios_qr.png" alt="ios-qrcode" class="ios_qrcode" />
+					<a
+						href="https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895"
+					>
+						<img src="./images/ios_download.png" alt="" class="ios_img" />
+					</a>
+					<a href="./ios_tutorial.html" class="detail">安裝說明 - iOS</a>
+				</div>
+				<div class="box">
+					<h2 class="subtitle">Android</h2>
+					<img src="./images/android_qr.png" alt="android-qrcode" class="android_qrcode" />
+					<a href="https://cloud.longchenpaper.com/s/iFwafeYy9sB6Jw9">
+						<img src="./images/android_download.png" alt="" class="android_img" />
+					</a>
+					<a href="./android_tutorial.html" class="detail">安裝說明 - Android</a>
 				</div>
 			</div>
 		</div>
 	</body>
 	<script>
-		function getOperatingSystem() {
-			var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+		// function getOperatingSystem() {
+		// 	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-			// Windows
-			if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-				document.getElementById('windows').style.display = 'block';
-				// alert("windows");
-				return 'windows';
-			} else {
-				// Android
-				if (/android/i.test(userAgent)) {
-					document.getElementById('android').style.display = 'block';
-					// alert("android");
-					return 'android';
-				}
+		// 	// Windows
+		// 	if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+		// 		document.getElementById('windows').style.display = 'block';
+		// 		// alert("windows");
+		// 		return 'windows';
+		// 	} else {
+		// 		// Android
+		// 		if (/android/i.test(userAgent)) {
+		// 			document.getElementById('android').style.display = 'block';
+		// 			// alert("android");
+		// 			return 'android';
+		// 		}
 
-				// iOS
-				if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-					document.getElementById('ios').style.display = 'block';
-					// alert("ios");
-					return 'ios';
-				}
-			}
-		}
+		// 		// iOS
+		// 		if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+		// 			document.getElementById('ios').style.display = 'block';
+		// 			// alert("ios");
+		// 			return 'ios';
+		// 		}
+		// 	}
+		// }
 
-		window.onload = function () {
-			getOperatingSystem();
-		};
+		// window.onload = function () {
+		// 	getOperatingSystem();
+		// };
 
-		function windowsToggler() {
-			document.getElementById('ios').style.display = 'none';
-			document.getElementById('android').style.display = 'none';
-			document.getElementById('windows').style.display = 'block';
-		}
+		// function windowsToggler() {
+		// 	document.getElementById('ios').style.display = 'none';
+		// 	document.getElementById('android').style.display = 'none';
+		// 	document.getElementById('windows').style.display = 'block';
+		// }
 	</script>
 </html>
