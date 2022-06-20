@@ -4,14 +4,18 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="ie=11" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>榮成紙業-行動裝置下載</title>
+		<title>榮成紙業-App下載</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Wire+One&display=swap" rel="stylesheet" />
 		<style>
 			/* global */
+			body {
+				overflow: hidden;
+			}
 			#ios {
 				display: none;
+				/* min-height: calc(93vh - 30px); */
 			}
 			#android {
 				display: none;
@@ -23,26 +27,16 @@
 				font-family: Arial, Helvetica, sans-serif;
 			}
 			.container {
-				height: 95vh;
+				height: 80vh;
 				width: 100%;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
+				text-align: center;
 			}
 
 			/* App Device */
-			.app_icon_wrap {
-				/* width: 250px; */
-				/* height: 220px; */
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				/* border: 1px solid rgba(0, 0, 0, 0.2);
-				border-radius: 20%; */
-				/* margin-top: 30px; */
-			}
 			.download_link {
 				text-decoration: none;
 				font-size: 28px;
@@ -54,6 +48,18 @@
 			.links {
 				display: flex;
 				align-items: center;
+			}
+			.footer {
+				height: 30px;
+				display: flex;
+				justify-content: center;
+				align-items: end;
+			}
+			.footer a {
+				cursor: pointer;
+			}
+			.footer a:hover {
+				text-decoration: underline;
 			}
 
 			/* Windows Device */
@@ -108,22 +114,45 @@
 			<div class="container">
 				<div class="app_icon_wrap">
 					<img src="./images/companylogo.png" alt="longchenlogo" style="width: 230px; height: 75px" />
-					<h3>雲端辦公室 行動裝置 - Android</h3>
+					<h3>雲端辦公室 App</h3>
+					<p>
+						系統偵測到您使用的裝置是Android，<br />如您是iOS用戶
+						<a
+							href="https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895"
+						>
+							<span>請點此</span>
+						</a>
+						進行下載
+					</p>
 				</div>
 				<div class="links">
-					<a class="download_link" href="./android_download.html" target="_blank" rel="noopener noreferrer">下載</a>
+					<a
+						class="download_link"
+						href="https://cloud.longchenpaper.com/s/iFwafeYy9sB6Jw9"
+						target="_blank"
+						rel="noopener noreferrer"
+						>下載</a
+					>
 					<p style="font-size: 30px; padding: 0 10px; font-weight: 600; color: rgb(172, 170, 170)">|</p>
 					<a class="download_link" href="./android_tutorial.html" target="_blank" rel="noopener noreferrer">安裝說明</a>
 				</div>
+			</div>
+			<div class="footer">
+				<a onclick="windowsToggler()">電腦版</a>
 			</div>
 		</div>
 		<!-- iOS 載點頁面 -->
 		<div id="ios">
 			<div class="container">
-				<div class="app_icon_wrap">
-					<img src="./images/companylogo.png" alt="longchenlogo" style="width: 230px; height: 75px" />
-					<h3>雲端辦公室 行動裝置 - iOS</h3>
-				</div>
+				<img src="./images/companylogo.png" alt="longchenlogo" style="width: 230px; height: 75px" />
+				<h3>雲端辦公室 App</h3>
+				<p>
+					系統偵測到您使用的裝置是iOS，<br />如您是Android用戶
+					<a href="https://cloud.longchenpaper.com/s/iFwafeYy9sB6Jw9">
+						<span>請點此</span>
+					</a>
+					進行下載
+				</p>
 				<div class="links">
 					<a
 						class="download_link"
@@ -136,12 +165,15 @@
 					<a class="download_link" href="./ios_tutorial.html" target="_blank" rel="noopener noreferrer">安裝說明</a>
 				</div>
 			</div>
+			<div class="footer">
+				<a onclick="windowsToggler()">電腦版</a>
+			</div>
 		</div>
 		<!-- Windows 載點頁面 -->
 		<div id="windows">
 			<div class="container">
 				<img src="./images/companylogo.png" alt="" style="margin-top: 20px" />
-				<h3>雲端辦公室 行動裝置下載</h3>
+				<h3>雲端辦公室 App下載</h3>
 				<div class="content">
 					<div class="box">
 						<h2 style="margin-bottom: 20px">iOS</h2>
@@ -156,7 +188,7 @@
 					<div class="box">
 						<h2 style="margin-bottom: 20px">Android</h2>
 						<img src="./images/android_qr.png" alt="android-qrcode" class="android_qrcode" />
-						<a href="./android_download.html">
+						<a href="https://cloud.longchenpaper.com/s/iFwafeYy9sB6Jw9">
 							<img src="./images/android_download.png" alt="" style="width: 180px" />
 						</a>
 						<a href="./android_tutorial.html" class="detail">安裝說明 - Android</a>
@@ -194,5 +226,11 @@
 		window.onload = function () {
 			getOperatingSystem();
 		};
+
+		function windowsToggler() {
+			document.getElementById('ios').style.display = 'none';
+			document.getElementById('android').style.display = 'none';
+			document.getElementById('windows').style.display = 'block';
+		}
 	</script>
 </html>
