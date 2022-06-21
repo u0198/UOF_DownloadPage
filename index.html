@@ -8,6 +8,13 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Wire+One&display=swap" rel="stylesheet" />
+		<script src="jquery-3.6.0.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+			integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
 		<style>
 			/* global */
 			body {
@@ -69,17 +76,15 @@
 				height: 80vh;
 			}
 			.subtitle {
-				margin-bottom: 20px;
+				margin-bottom: 10px;
 				display: none;
 			}
-			.ios_qrcode {
-				width: 230px;
+			.qrcode img {
+				width: 220px;
+				height: 220px;
 				margin-bottom: 20px;
-				display: none;
 			}
-			.android_qrcode {
-				width: 230px;
-				margin-bottom: 20px;
+			.qrcode {
 				display: none;
 			}
 			.ios_img {
@@ -105,13 +110,13 @@
 				justify-content: center;
 				align-items: center;
 				text-align: center;
-				gap: 16px;
 			}
 			.box {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
+				gap: 12px;
 			}
 
 			@media (min-width: 1024px) {
@@ -121,6 +126,9 @@
 				.subtitle {
 					display: block;
 				}
+				.qrcode {
+					display: block;
+				}
 				.ios_img {
 					width: 180px;
 					height: 55px;
@@ -128,12 +136,6 @@
 				.android_img {
 					width: 186px;
 					height: 57px;
-				}
-				.ios_qrcode {
-					display: block;
-				}
-				.android_qrcode {
-					display: block;
 				}
 				.content {
 					width: 800px;
@@ -148,11 +150,9 @@
 				.content {
 					width: 900px;
 				}
-				.ios_qrcode {
-					width: 320px;
-				}
-				.android_qrcode {
-					width: 320px;
+				.qrcode img {
+					width: 300px;
+					height: 300px;
 				}
 			}
 		</style>
@@ -225,7 +225,7 @@
 			<div class="content">
 				<div class="box">
 					<h2 class="subtitle">iOS</h2>
-					<img src="./images/ios_qr.png" alt="ios-qrcode" class="ios_qrcode" />
+					<div id="ios_qr" class="qrcode"></div>
 					<a
 						href="https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895"
 					>
@@ -235,7 +235,7 @@
 				</div>
 				<div class="box">
 					<h2 class="subtitle">Android</h2>
-					<img src="./images/android_qr.png" alt="android-qrcode" class="android_qrcode" />
+					<div id="android_qr" class="qrcode"></div>
 					<a href="https://cloud.longchenpaper.com/s/iFwafeYy9sB6Jw9">
 						<img src="./images/android_download.png" alt="" class="android_img" />
 					</a>
@@ -245,6 +245,13 @@
 		</div>
 	</body>
 	<script>
+		window.onload = () => {
+			new QRCode(document.getElementById('android_qr'), 'https://cloud.longchenpaper.com/s/iFwafeYy9sB6Jw9');
+			new QRCode(
+				document.getElementById('ios_qr'),
+				'https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895',
+			);
+		};
 		// function getOperatingSystem() {
 		// 	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
