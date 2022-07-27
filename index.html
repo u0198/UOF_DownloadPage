@@ -18,7 +18,8 @@
 		<style>
 			/* global */
 			body {
-				overflow-y: hidden;
+				/* overflow-y: hidden; */
+				font-family: Arial, Helvetica, sans-serif;
 			}
 			/* #ios {
 				display: none;
@@ -82,6 +83,8 @@
 				align-items: center;
 				text-align: center;
 				margin-top: 50px;
+				margin-bottom: 50px;
+				gap: 50px;
 			}
 			.box {
 				display: flex;
@@ -89,7 +92,7 @@
 				justify-content: center;
 				align-items: center;
 				gap: 12px;
-				margin-bottom: 30px;
+				/* margin-bottom: 30px; */
 			}
 			.subtitle {
 				margin-bottom: 10px;
@@ -161,6 +164,64 @@
 				opacity: 1;
 			}
 
+			/* 安卓操作教學 */
+			.tutorial_container {
+				width: 80%;
+				margin: 0 auto;
+			}
+			.title {
+				text-align: center;
+				margin-bottom: 30px;
+			}
+			.row {
+				margin-bottom: 50px;
+			}
+			.tutorial_subtitle {
+				text-align: center;
+			}
+			.imgbox {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			.img {
+				height: 370px;
+				box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+				margin: 12px;
+			}
+			.devicer {
+				width: 20em;
+				display: block;
+				height: 1px;
+				background-color: grey;
+				/* margin: auto 0; */
+				align-self: center;
+			}
+
+			#myBtn {
+				display: none;
+				position: fixed;
+				bottom: 20px;
+				right: 10%;
+				z-index: 99;
+				font-size: 18px;
+				border-radius: 50%;
+				outline: none;
+				background: none;
+				cursor: pointer;
+				padding: 15px;
+				transition: all 0.2s;
+				border: none;
+				color: rgba(0, 0, 0, 0.5);
+			}
+
+			#myBtn:hover {
+				border: 1px solid white;
+				background-color: rgba(0, 0, 0, 0.2);
+				color: white;
+			}
+
 			@media (min-width: 1024px) {
 				.container {
 					height: 100vh;
@@ -189,6 +250,13 @@
 				.detail {
 					font-size: 23px;
 				}
+				.devicer {
+					display: none;
+				}
+				#myBtn {
+					right: 30px;
+					border: 1px solid rgba(0, 0, 0, 0.2);
+				}
 			}
 
 			@media only screen and (min-width: 1440px) {
@@ -209,6 +277,15 @@
 				.qrcode img {
 					width: 280px;
 					height: 280px;
+				}
+				.img {
+					height: 500px;
+				}
+				.title {
+					font-size: 35px;
+				}
+				.tutorial_subtitle {
+					font-size: 23px;
 				}
 			}
 		</style>
@@ -305,8 +382,9 @@
 					>
 						<img src="./images/ios_download.png" alt="" class="ios_img" />
 					</a>
-					<a href="./ios_tutorial.html" class="detail">安裝說明 - 蘋果</a>
+					<!-- <a href="./ios_tutorial.html" class="detail">安裝說明 - 蘋果</a> -->
 				</div>
+				<div class="devicer"></div>
 				<div class="box">
 					<div>
 						<h2 class="subtitle">安卓</h2>
@@ -331,10 +409,55 @@
 					<a href="https://cloud.longchenpaper.com/s/o4LxQxGFm9ACLKB">
 						<img src="./images/android_download.png" alt="" class="android_img" />
 					</a>
-					<a href="./android_tutorial.html" class="detail">安裝說明 - 安卓</a>
+					<!-- <a href="./android_tutorial.html" class="detail">安裝說明 - 安卓</a> -->
 				</div>
 			</div>
 		</div>
+		<!-- 教學頁面 -->
+		<div class="tutorial_container">
+			<h1 class="title">安裝流程說明 - Android APK</h1>
+			<div class="row">
+				<h3 class="tutorial_subtitle">1. 下載前需先進行安全性設定，至「設定」—>「安全性」—>開啟「不明的來源」。</h3>
+				<div class="imgbox">
+					<img src="./images/android_01.jpg" alt="" class="img" />
+					<img src="./images/android_02.jpg" alt="" class="img" />
+					<img src="./images/android_03.jpg" alt="" class="img" />
+				</div>
+			</div>
+			<div class="row">
+				<h3 class="tutorial_subtitle">
+					2. <a href="https://cloud.longchenpaper.com/s/o4LxQxGFm9ACLKB" target="_blank">下載APK檔</a>
+				</h3>
+				<div class="imgbox">
+					<img src="./images/android_04.jpg" alt="" class="img" />
+				</div>
+			</div>
+			<div class="row">
+				<h3 class="tutorial_subtitle">3. 開啟APK進行APP安裝作業。</h3>
+				<div class="imgbox">
+					<img src="./images/android_05.jpg" alt="" class="img" />
+					<img src="./images/android_06.jpg" alt="" class="img" />
+					<img src="./images/android_07.jpg" alt="" class="img" />
+				</div>
+			</div>
+			<div class="row">
+				<h3 class="tutorial_subtitle">4. 完成安裝。</h3>
+			</div>
+		</div>
+		<button id="myBtn" onclick="topFunction()">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="16"
+				height="16"
+				fill="currentColor"
+				class="bi bi-caret-up"
+				viewBox="0 0 16 16"
+			>
+				<path
+					d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"
+				/>
+			</svg>
+		</button>
 	</body>
 	<script>
 		window.onload = () => {
@@ -344,6 +467,28 @@
 				'https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895',
 			);
 		};
+
+		var mybutton = document.getElementById('myBtn');
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () {
+			scrollFunction();
+		};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = 'block';
+			} else {
+				mybutton.style.display = 'none';
+			}
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+
 		// function getOperatingSystem() {
 		// 	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
