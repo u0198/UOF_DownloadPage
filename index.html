@@ -18,8 +18,9 @@
 		<style>
 			/* global */
 			body {
-				/* overflow-y: hidden; */
+				overflow-x: hidden;
 				font-family: Arial, Helvetica, sans-serif;
+				margin: 0px;
 			}
 			/* #ios {
 				display: none;
@@ -30,18 +31,14 @@
 			#windows {
 				display: block;
 			}
-			body {
-				font-family: Arial, Helvetica, sans-serif;
-			}
 			.container {
-				height: 80vh;
 				width: 100%;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
 				text-align: center;
-				margin: 0 auto;
+				margin: 40px auto 0;
 			}
 
 			/* App Device */
@@ -73,8 +70,16 @@
 			} */
 
 			/* Windows Device */
-			.container {
-				height: 80vh;
+			.companyicon_box {
+				border: 2px solid rgba(0, 0, 0, 0.1);
+				border-radius: 20px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 52px 8px;
+			}
+			.companyicon {
+				width: 130px;
 			}
 			.content {
 				display: flex;
@@ -164,15 +169,22 @@
 				opacity: 1;
 			}
 
-			/* 安卓操作教學 */
-			.tutorial_container {
-				width: 80%;
-				margin: 0 auto;
+			.title_box {
+				background: rgba(0, 0, 0, 0.3);
+				padding: 0.5rem;
+				margin-bottom: 50px;
 			}
 			.title {
 				text-align: center;
 				margin-bottom: 30px;
+				color: #fff;
 			}
+			/* apple操作教學 */
+			.subtitle_ios {
+				text-align: center;
+			}
+
+			/* 安卓操作教學 */
 			.row {
 				margin-bottom: 50px;
 			}
@@ -203,7 +215,7 @@
 				display: none;
 				position: fixed;
 				bottom: 20px;
-				right: 10%;
+				right: 5%;
 				z-index: 99;
 				font-size: 18px;
 				border-radius: 50%;
@@ -214,6 +226,7 @@
 				transition: all 0.2s;
 				border: none;
 				color: rgba(0, 0, 0, 0.5);
+				border: 1px solid rgba(0, 0, 0, 0.2);
 			}
 
 			#myBtn:hover {
@@ -221,11 +234,21 @@
 				background-color: rgba(0, 0, 0, 0.2);
 				color: white;
 			}
+			.android_09 {
+				width: 180px;
+				height: 350px;
+			}
+
+			@media (min-width: 768px) {
+				.companyicon_box {
+					padding: 58px 8px;
+				}
+				.companyicon {
+					width: 180px;
+				}
+			}
 
 			@media (min-width: 1024px) {
-				.container {
-					height: 100vh;
-				}
 				.content {
 					flex-direction: row;
 				}
@@ -255,11 +278,23 @@
 				}
 				#myBtn {
 					right: 30px;
-					border: 1px solid rgba(0, 0, 0, 0.2);
+				}
+				.android_09 {
+					width: 210px;
+					height: 380px;
 				}
 			}
 
 			@media only screen and (min-width: 1440px) {
+				.container {
+					margin: 40px auto 40px;
+				}
+				.companyicon_box {
+					padding: 67px 8px;
+				}
+				.companyicon {
+					width: 230px;
+				}
 				.content {
 					width: 900px;
 				}
@@ -286,6 +321,18 @@
 				}
 				.tutorial_subtitle {
 					font-size: 23px;
+				}
+				.container_ios .img {
+					height: 550px;
+				}
+				.title_ios {
+					font-size: 35px;
+				}
+				.subtitle_ios {
+					font-size: 23px;
+				}
+				.android_09 {
+					width: 280px;
 				}
 			}
 		</style>
@@ -352,112 +399,183 @@
 			</div>
 		</div> -->
 		<!-- Windows 載點頁面 -->
-		<div class="container">
-			<img src="./images/companylogo.png" alt="" style="margin-top: 20px" />
-			<h3>雲端辦公室 App下載</h3>
-			<div class="content">
-				<div class="box">
-					<div>
-						<h2 class="subtitle">蘋果</h2>
-						<!-- <a href="./ios_tutorial.html" class="detail tooltip">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="16"
-								height="16"
-								fill="currentColor"
-								class="bi bi-question-circle detailicon"
-								viewBox="0 0 16 16"
-							>
-								<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-								<path
-									d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
-								/>
-							</svg>
-							<span class="tooltiptext">iOS安裝說明</span>
-						</a> -->
+		<div class="wrap">
+			<div class="container">
+				<div class="companyicon_box">
+					<img src="./images/companylogo.png" alt="" class="companyicon" />
+				</div>
+				<h3>雲端辦公室 App下載</h3>
+				<div class="content">
+					<div class="box">
+						<div>
+							<h2 class="subtitle">蘋果</h2>
+							<!-- <a href="./ios_tutorial.html" class="detail tooltip">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="16"
+									height="16"
+									fill="currentColor"
+									class="bi bi-question-circle detailicon"
+									viewBox="0 0 16 16"
+								>
+									<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+									<path
+										d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+									/>
+								</svg>
+								<span class="tooltiptext">iOS安裝說明</span>
+							</a> -->
+						</div>
+						<div id="ios_qr" class="qrcode"></div>
+						<a
+							href="https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895"
+						>
+							<img src="./images/ios_download.png" alt="" class="ios_img" />
+						</a>
+						<!-- <a href="./ios_tutorial.html" class="detail">安裝說明 - 蘋果</a> -->
 					</div>
-					<div id="ios_qr" class="qrcode"></div>
-					<a
-						href="https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895"
-					>
-						<img src="./images/ios_download.png" alt="" class="ios_img" />
-					</a>
-					<!-- <a href="./ios_tutorial.html" class="detail">安裝說明 - 蘋果</a> -->
-				</div>
-				<div class="devicer"></div>
-				<div class="box">
-					<div>
-						<h2 class="subtitle">安卓</h2>
-						<!-- <a href="./android_tutorial.html" class="detail tooltip">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="16"
-								height="16"
-								fill="currentColor"
-								class="bi bi-question-circle detailicon"
-								viewBox="0 0 16 16"
-							>
-								<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-								<path
-									d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
-								/>
-							</svg>
-							<span class="tooltiptext">APK下載教學</span>
-						</a> -->
+					<div class="devicer"></div>
+					<div class="box">
+						<div>
+							<h2 class="subtitle">安卓</h2>
+							<!-- <a href="./android_tutorial.html" class="detail tooltip">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="16"
+									height="16"
+									fill="currentColor"
+									class="bi bi-question-circle detailicon"
+									viewBox="0 0 16 16"
+								>
+									<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+									<path
+										d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+									/>
+								</svg>
+								<span class="tooltiptext">APK下載教學</span>
+							</a> -->
+						</div>
+						<div id="android_qr" class="qrcode"></div>
+						<a href="https://cloud.longchenpaper.com/s/o4LxQxGFm9ACLKB">
+							<img src="./images/android_download.png" alt="" class="android_img" />
+						</a>
+						<!-- <a href="./android_tutorial.html" class="detail">安裝說明 - 安卓</a> -->
 					</div>
-					<div id="android_qr" class="qrcode"></div>
-					<a href="https://cloud.longchenpaper.com/s/o4LxQxGFm9ACLKB">
-						<img src="./images/android_download.png" alt="" class="android_img" />
-					</a>
-					<!-- <a href="./android_tutorial.html" class="detail">安裝說明 - 安卓</a> -->
 				</div>
 			</div>
+			<!-- ios教學頁面 -->
+			<div>
+				<div class="title_box">
+					<h1 class="title">安裝說明 - iOS</h1>
+				</div>
+				<!-- 參考來源 -->
+				<!-- https://www.cot.org.tw/ta/introduce/APP_intr/APP_InstallProcess.php -->
+				<div class="row">
+					<h3 class="subtitle_ios">
+						1. 點擊
+						<a
+							href="https://apps.apple.com/us/app/%E6%A6%AE%E6%88%90%E7%B4%99%E6%A5%AD-%E9%9B%B2%E7%AB%AF%E8%BE%A6%E5%85%AC%E5%AE%A4/id1624630895"
+							target="_blank"
+						>
+							<img src="./images/ios_download.png" alt="" style="width: 80px" />
+						</a>
+						安裝「榮成紙業-雲端辦公室」App。
+					</h3>
+					<div class="imgbox">
+						<img src="./images/ios_01.PNG" alt="" class="img" />
+					</div>
+				</div>
+				<div class="row">
+					<h3 class="subtitle_ios">2. 完成安裝。</h3>
+					<div class="imgbox">
+						<img src="./images/ios_05.jpg" alt="" class="img" />
+					</div>
+				</div>
+				<div class="row">
+					<h3 class="subtitle_ios">3. 打開App後，點擊「開始」。</h3>
+					<div class="imgbox">
+						<img src="./images/ios_03.PNG" alt="" class="img" />
+					</div>
+				</div>
+				<div class="row">
+					<h3 class="subtitle_ios">4. 看到需要下載更新檔才能使用彈出視窗，點擊「確定」，進行下載。</h3>
+					<div class="imgbox">
+						<img src="./images/ios_04.PNG" alt="" class="img" />
+					</div>
+				</div>
+			</div>
+			<!-- android教學頁面 -->
+			<div>
+				<div class="title_box">
+					<h1 class="title">安裝說明 - Android</h1>
+				</div>
+				<div class="row">
+					<h3 class="tutorial_subtitle">1. 安裝前需先進行安全性設定，至「設定」—>「安全性」。</h3>
+					<div class="imgbox">
+						<img src="./images/android_01.jpg" alt="" class="img" />
+					</div>
+				</div>
+				<div class="row">
+					<h3 class="tutorial_subtitle">2. 開啟「不明的來源」—> 點擊「確定」。</h3>
+					<div class="imgbox">
+						<img src="./images/android_02.jpg" alt="" class="img" />
+						<img src="./images/android_03.jpg" alt="" class="img" />
+					</div>
+				</div>
+				<div class="row">
+					<h3 class="tutorial_subtitle">
+						3. 點擊
+						<a href="https://cloud.longchenpaper.com/s/o4LxQxGFm9ACLKB" target="_blank">
+							<img src="./images/android_download.png" alt="" style="width: 80px" />
+						</a>
+						安裝「榮成紙業-雲端辦公室」App。
+					</h3>
+					<div class="imgbox">
+						<img src="./images/android_04.jpg" alt="" class="img" />
+					</div>
+				</div>
+				<div class="row">
+					<h3 class="tutorial_subtitle">4. 開啟APK進行APP安裝作業。</h3>
+					<div class="imgbox">
+						<img src="./images/android_05.jpg" alt="" class="img" />
+						<img src="./images/android_06.jpg" alt="" class="img" />
+						<img src="./images/android_07.jpg" alt="" class="img" />
+					</div>
+				</div>
+				<div class="row">
+					<h3 class="tutorial_subtitle">5. 完成安裝。</h3>
+					<div class="imgbox">
+						<img src="./images/android_09.jpg" alt="" class="img android_09" />
+					</div>
+				</div>
+				<div class="row">
+					<h3 class="subtitle_ios">6. 打開App後，點擊「開始」。</h3>
+					<div class="imgbox">
+						<img src="./images/android_10.jpg" alt="" class="img android_09" />
+					</div>
+				</div>
+				<div class="row">
+					<h3 class="subtitle_ios">7. 看到需要下載更新檔才能使用彈出視窗，點擊「確定」，進行下載。</h3>
+					<div class="imgbox">
+						<img src="./images/android_11.jpg" alt="" class="img android_09" />
+					</div>
+				</div>
+			</div>
+			<button id="myBtn" onclick="topFunction()">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="16"
+					height="16"
+					fill="currentColor"
+					class="bi bi-caret-up"
+					viewBox="0 0 16 16"
+				>
+					<path
+						d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"
+					/>
+				</svg>
+			</button>
 		</div>
-		<!-- 教學頁面 -->
-		<div class="tutorial_container">
-			<h1 class="title">安裝流程說明 - Android APK</h1>
-			<div class="row">
-				<h3 class="tutorial_subtitle">1. 下載前需先進行安全性設定，至「設定」—>「安全性」—>開啟「不明的來源」。</h3>
-				<div class="imgbox">
-					<img src="./images/android_01.jpg" alt="" class="img" />
-					<img src="./images/android_02.jpg" alt="" class="img" />
-					<img src="./images/android_03.jpg" alt="" class="img" />
-				</div>
-			</div>
-			<div class="row">
-				<h3 class="tutorial_subtitle">
-					2. <a href="https://cloud.longchenpaper.com/s/o4LxQxGFm9ACLKB" target="_blank">下載APK檔</a>
-				</h3>
-				<div class="imgbox">
-					<img src="./images/android_04.jpg" alt="" class="img" />
-				</div>
-			</div>
-			<div class="row">
-				<h3 class="tutorial_subtitle">3. 開啟APK進行APP安裝作業。</h3>
-				<div class="imgbox">
-					<img src="./images/android_05.jpg" alt="" class="img" />
-					<img src="./images/android_06.jpg" alt="" class="img" />
-					<img src="./images/android_07.jpg" alt="" class="img" />
-				</div>
-			</div>
-			<div class="row">
-				<h3 class="tutorial_subtitle">4. 完成安裝。</h3>
-			</div>
-		</div>
-		<button id="myBtn" onclick="topFunction()">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				width="16"
-				height="16"
-				fill="currentColor"
-				class="bi bi-caret-up"
-				viewBox="0 0 16 16"
-			>
-				<path
-					d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"
-				/>
-			</svg>
-		</button>
 	</body>
 	<script>
 		window.onload = () => {
